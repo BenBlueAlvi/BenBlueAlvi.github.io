@@ -1,8 +1,191 @@
-<html>
 
 
-	<body>
-		Hello world!
-	</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-</html>
+
+<div id="app">
+	
+	<div class="nav">
+		<div class="nav-title">Benjamin Blue Alvi</div>
+		<div style="margin: 10px;">
+			<a class="lnk" href="https://gitlab.com/BenjaminBlueAlvi">Github</a>
+			<a class="lnk" href="https://github.com/BenBlueAlvi">Gitlab</a>
+			<a class="lnk" href="https://benbluealvi.itch.io/">Itch.io</a>
+			<a class="lnk" href="https://www.linkedin.com/in/benjamin-alvi-017765179/">Linkedin</a>
+		</div>
+		<router-link to="/"><div class="nav-item">About</div></router-link>
+		<router-link to="/projects"><div class="nav-item">Projects</div></router-link>
+		<router-link to="/blog"><div class="nav-item">Blog</div></router-link>
+		<router-link to="/resume"><div class="nav-item">Resume</div></router-link>
+	</div>
+	
+	<div class="container">
+		<router-view></router-view>
+	</div>
+</div>
+
+
+<script type ="module">
+
+let about =  {
+	template: ` 
+		<div class="text">  
+			Hello! My name is Benjamin Alvi, and I am currently studying computer science at Oregon State University. 
+			I've been working a multitude of personal projects over the years, many of which can be found on my github and
+			gitlab pages. I'm planning to use this space to document future projects. I have always aspired to be a 
+			game developer, and as such many of those projects have been small games. If you're interested in some of my
+			thoughts on game development, please feel free to check out my blog. 
+			<br></br>
+			I have been programming since the seventh grade, and I quickly feel in love with it. I saw coding as a new
+			medium for me to create games. Every since then, I have been creating small video games. This has led me to
+			persue a career in game development. I have learns languages and frameworks from python to C# and Unity to 
+			Godot in persuit of this goal.
+			<br></br>
+			Outside of programming, I have been writing short stories in my spare time. I also enjoy going on hikes,
+			cooking, and playing Dungeons and Dragons.
+		</div>
+	
+	`
+}
+
+let projects = {
+	template: `
+		<div class="proj-container">
+			<div class="proj"> 
+			Vortechs
+			<br></br>
+			Status: WIP
+			<br></br>
+			<a>Link (Not released)</a>
+			<br></br>
+			Bullet hell shoot 'em up, currently in early development. Spiritual successor to Bullet Engine.
+			Built in Godot
+			</div>
+			
+			<div class="proj"> 
+			Production Panic
+			<br></br>
+			Status: WIP, Development Halted
+			<br></br>
+			<a href="https://quarkspring.itch.io/production-panic">Link</a>
+			<br></br>
+			Submission for GMTK Game Jam 2020. The theme for the jam was 'out of control'. The best
+			way to describe this game would be a management sim where you play as a robot that has
+			to manage repairing broken machinary and loading packages into a truck on an assembly line. 
+			The game grows increasingly more chaotic as time progresses. Built in Godot. Development was halted after
+			the game jam ended. I may come back to this project later. 
+			</div>
+			
+			<div class="proj"> 
+			Bullet Engine
+			<br></br>
+			Status: Released v1.0.0
+			<br></br>
+			<a href="https://github.com/BenBlueAlvi/BulletEngine">Link</a>
+			<br></br>
+			Summer personal project. It's a bullet hell shoot 'em up with 6 stages. At the end of each stage
+			is a shop where the player can purchase upgrades with the score that they accrue in the stages.
+			There are a few other machanics like super bosses that spawn if a boss is killed without the 
+			player taking damage. Built in LibGDX and Java. I may update this project to v1.1.0 eventually.
+			</div>
+		</div>
+	`
+	
+}
+
+let blog = {
+	template: `<div>Work in progress</div>`
+}
+
+let resume = {
+	template: `
+	<object data="./resume.pdf" type="application/pdf" width="100%" height="100%">
+		<a href="./resume.pdf">test.pdf</a>
+	</object>
+	`
+}
+
+
+const routes = [
+	{path: "/", component: about},
+	{path: "/projects", component: projects},
+	{path: "/resume", component: resume},
+	{path: "/blog", component: blog},
+]
+
+const router = new VueRouter({
+	routes
+})
+
+const app = new Vue({
+	router
+}).$mount("#app")
+</script>
+
+<style>
+	.nav {
+		background-color: #aaaaff;
+		
+		text-align: center;
+		
+		
+	}
+	
+	.nav-title{
+		font-size: 20px;
+		font-style: italic;
+		font-weight: 900;
+		text-shadow: 5px 5px #888888;
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+	
+	.nav-item{
+		display: inline-block;
+		margin: -2px;
+		width: 25%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: #9999ff;
+		transition: 1s ease-in-out;
+		
+	}
+	.nav-item:hover{
+		background-color:  #6666ff;
+		color:#ffffff;
+		transition: 1s ease-in-out;
+	}
+	
+	.container{
+		padding: 50px;
+	}
+	
+	
+	.text {
+		background-color: #aaaaff;
+		padding: 30px;
+		margin: 10px;
+		border: 1px solid black;
+	}
+	
+	.lnk {
+		display: inline-block;
+	}
+	
+	.proj-container{
+		margin-left: 20%;
+		margin-right: 20%;
+		border: 3px solid #6666ff;
+		padding: 5px;
+		
+		background-color: #aaaaff;
+	}
+	
+	.proj{
+		border: 1px solid black;
+		display: inline-block;
+		padding: 10px;
+		
+	}
+</style>
