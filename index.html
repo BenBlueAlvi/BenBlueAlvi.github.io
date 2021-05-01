@@ -7,7 +7,7 @@
 <div id="app">
 	
 	<div class="nav">
-		<div class="nav-title">Benjamin Blue Alvi</div>
+		<div class="nav-title">Benjamin Alvi</div>
 		<div style="margin: 10px;">
 			<a class="lnk" href="https://gitlab.com/BenjaminBlueAlvi">Github</a>
 			<a class="lnk" href="https://github.com/BenBlueAlvi">Gitlab</a>
@@ -53,8 +53,29 @@ let projects = {
 	template: `
 		<div class="proj-container">
 			<div class="proj"> 
-			Vortechs
+			<div class="proj-title">Infinity Scheduler</div>		
+			Status: WIP, Realse Date: May 26
 			<br></br>
+			<a href="https://infinityscheduler.com">Link</a>
+			<br></br>
+			A webapp scheduler with an integrated AI, as well as several other convience features. Currently in beta.
+			Built as a part of my univeristy senior capstone project along with Kennedy Vandal, Youli Zhao, and Zhifeng Li.
+			<br></br>
+			
+			This project was built for an external client. You can find more information about them
+			<a href="https://www.remarkablearts.biz/">here</a>.
+			<br></br>
+			Some of these convience features would have included: cross-app integration, goal planning, cross-schedule scheduling, and automatic event completion tracking, and more.
+			My team and I mostly wrote the foundational code for this project and didn't have the time to expand it to encompass all the planned features.
+			<br></br>
+			I acted as the lead developer for this project, and was in charge of delegating tasks.
+			<br></br>
+			At the end of this project, it will be handed off to another group of developers.
+			</div>
+		
+			<div class="proj"> 
+			<div class="proj-title">Vortechs</div>
+		
 			Status: WIP
 			<br></br>
 			<a>Link (Not released)</a>
@@ -64,8 +85,8 @@ let projects = {
 			</div>
 			
 			<div class="proj"> 
-			Production Panic
-			<br></br>
+			<div class="proj-title">Production Panic</div>
+		
 			Status: WIP, Development Halted
 			<br></br>
 			<a href="https://quarkspring.itch.io/production-panic">Link</a>
@@ -78,8 +99,8 @@ let projects = {
 			</div>
 			
 			<div class="proj"> 
-			Bullet Engine
-			<br></br>
+			<div class="proj-title">Bullet Engine</div>
+			
 			Status: Released v1.0.0
 			<br></br>
 			<a href="https://github.com/BenBlueAlvi/BulletEngine">Link</a>
@@ -124,8 +145,13 @@ const app = new Vue({
 </script>
 
 <style>
+	*{
+		background-color: #000000;
+		color: white;
+		font-family: monospace;
+	}
 	.nav {
-		background-color: #aaaaff;
+		background-color: #000000;
 		
 		text-align: center;
 		
@@ -136,9 +162,11 @@ const app = new Vue({
 		font-size: 20px;
 		font-style: italic;
 		font-weight: 900;
-		text-shadow: 5px 5px #888888;
+		
 		margin-bottom: 10px;
 		padding: 10px;
+		background-color: #FFFFFF;
+		color: #000000;
 	}
 	
 	.nav-item{
@@ -147,13 +175,13 @@ const app = new Vue({
 		width: 25%;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background-color: #9999ff;
+		background-color: #000000;
 		transition: 1s ease-in-out;
 		
 	}
 	.nav-item:hover{
-		background-color:  #6666ff;
-		color:#ffffff;
+		background-color:  #ffffff;
+		color:#000000;
 		transition: 1s ease-in-out;
 	}
 	
@@ -163,10 +191,11 @@ const app = new Vue({
 	
 	
 	.text {
-		background-color: #aaaaff;
+		background-color: #000000;
 		padding: 30px;
 		margin: 10px;
 		border: 1px solid black;
+		color: white;
 	}
 	
 	.lnk {
@@ -176,16 +205,23 @@ const app = new Vue({
 	.proj-container{
 		margin-left: 20%;
 		margin-right: 20%;
-		border: 3px solid #6666ff;
+		border: 3px solid white;
 		padding: 5px;
 		
-		background-color: #aaaaff;
+		background-color: #000000;
 	}
 	
 	.proj{
-		border: 1px solid black;
-		display: inline-block;
+		border: 1px solid white;
+		display: block;
 		padding: 10px;
 		
+	}
+	.proj-title{
+		text-align:center;
+		background-color:  #000000;
+		color:#ffffff;
+		font-size: 20pt;
+		padding: 5px;
 	}
 </style>
